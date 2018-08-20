@@ -1,31 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Videos</h1>
+<h1>Listing Videos</h1>
+  
+<%= link_to new_video_path, :class => 'btn-floating btn-large waves-effect waves-light red' do %>
+  <i class="material-icons">add</i>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Wistia</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @videos.each do |video| %>
-      <tr>
-        <td><%= video.wistia %></td>
-        <td><%= video.title %></td>
-        <td><%= video.description %></td>
-        <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Video', new_video_path %>
+<ul class="collapsible" data-collapsible="accordion">
+  <% @videos.each do |video| %>
+    <li>
+      <div class="collapsible-header">
+        <i class="mdi-av-my-library-books"></i>
+        <%= link_to video.title, video %>
+        <span class="right">
+          <%= link_to video, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="mdi-notification-event-busy"></i><% end %>
+        </span>
+      </div>
+      <div class="collapsible-body"><p><%= video.description %></p></div>
+    </li>
+  <% end %>
+</ul>
+  
