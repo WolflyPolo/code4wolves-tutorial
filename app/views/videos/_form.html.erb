@@ -11,22 +11,18 @@
     </div>
   <% end %>
 
- <div class="field">
-    <%= form.label :wistia %>
-    <%= form.text_field :wistia %>
+ <div class="input-field">
+    <%= form.text_field :wistia, :placeholder => 'Link', :length => '10' %>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="input-field">
+    <%= form.text_field :title, :placeholder => 'Title', :length => '20' %> 
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="input-field">
+    <%= form.text_area :description, :placeholder => 'Description', :length => '800', :class => 'materialize-textarea' %> 
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+<a href="<%= videos_path %>" class="btn waves-effect waves-light" name="action">Back</a>
 <% end %>
