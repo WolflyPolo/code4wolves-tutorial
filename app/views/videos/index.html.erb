@@ -6,19 +6,20 @@
   <i class="material-icons">add</i>
 <% end %>
 
-<ul class="collapsible" data-collapsible="accordion">
+<ul class="collapsible">
   <% @videos.each do |video| %>
     <li>
       <div class="collapsible-header">
-        <i class="mdi-av-my-library-books"></i>
+        <i class="material-icons">library_books</i>
         <%= link_to video.title, video %>
         <span class="right">
           <%= link_to video, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="mdi-notification-event-busy"></i><% end %>
+            <i class="material-icons">event_busy</i><% end %>
         </span>
       </div>
-      <div class="collapsible-body"><p><%= video.description %></p></div>
+      <div class="collapsible-body"><span><%= video.description %></span></div>
     </li>
   <% end %>
 </ul>
+
   
